@@ -1,0 +1,29 @@
+body {
+    font-family: 'poppins', sans-serif;
+}
+
+.App {
+    width: 1000px;
+    margin: 0 auto;
+}
+.status {
+    font-size: 10px;
+    top: 16px;
+    left: 16px;
+}
+
+.details {
+    grid-gap: 5px;
+}
+.image {
+    border-radius: 1.5625rem;
+    object-fit: cover;
+}
+
+.title {
+    font-size: 12px;
+}
+
+.g-color {
+    color: #918E9B;
+}
