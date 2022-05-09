@@ -7,14 +7,17 @@ export default function Birthdaycard() {
   const [textInput, setTextInput] = useState();
   const [hidden, setHidden] = useState(false);
   const [currentEdit, setCurrentEdit] = useState(false);
-  // let currentlyEditing;
   const [currentlyEditing, setCurrentlyEditing] = useState();
 
+
+  //handlinginput
   const handleInput = (event) => {
     setTextInput(event.target.value);
     //  console.log(textInput)\
   };
 
+
+ //addingitems
   const addItem = () => {
     if (!textInput) return;
     /* const addItems = [...people, textInput];
@@ -25,12 +28,16 @@ export default function Birthdaycard() {
     setTextInput("");
   };
 
+
+  //deletingitems
   const deleteItem = (index) => {
     const newPeople = [...people];
     newPeople.splice(index, 1);
     setPeople(newPeople);
   };
 
+
+  //updateitems
   const updateItem = (index) => {
     // console.log(index);
     setHidden(true);
@@ -39,13 +46,23 @@ export default function Birthdaycard() {
    
   };
 
+
+  //editinginput
   const onEditInput = (value) => {
     console.log(value);
     setCurrentEdit(value);
   };
 
-  const save = () => {
+
+  //savefunction
+  const saveNewValue = () => {
+    // setTextInput(currentEdit);
     console.log(currentlyEditing);
+    const newUpdatedItem = [...people];
+    newUpdatedItem[currentlyEditing] = currentEdit;
+    setPeople(newUpdatedItem);
+    setCurrentEdit('');
+    setHidden(false);
   }
 
 
@@ -69,7 +86,7 @@ export default function Birthdaycard() {
             onChange={(e) => onEditInput(e.target.value)}
           />{" "}
           <button onClick={()=> {
-            save()
+            saveNewValue()
           }}> Save Me</button>{" "}
         </div>
       ) : null}
