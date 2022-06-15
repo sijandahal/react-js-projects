@@ -9,15 +9,13 @@ export default function Birthdaycard() {
   const [currentEdit, setCurrentEdit] = useState(false);
   const [currentlyEditing, setCurrentlyEditing] = useState();
 
-
   //handlinginput
   const handleInput = (event) => {
     setTextInput(event.target.value);
     //  console.log(textInput)\
   };
 
-
- //addingitems
+  //addingitems
   const addItem = () => {
     if (!textInput) return;
     /* const addItems = [...people, textInput];
@@ -28,7 +26,6 @@ export default function Birthdaycard() {
     setTextInput("");
   };
 
-
   //deletingitems
   const deleteItem = (index) => {
     const newPeople = [...people];
@@ -36,23 +33,19 @@ export default function Birthdaycard() {
     setPeople(newPeople);
   };
 
-
   //updateitems
   const updateItem = (index) => {
     // console.log(index);
     setHidden(true);
     setCurrentEdit(people[index]);
-    setCurrentlyEditing(index)
-   
+    setCurrentlyEditing(index);
   };
-
 
   //editinginput
   const onEditInput = (value) => {
     console.log(value);
     setCurrentEdit(value);
   };
-
 
   //savefunction
   const saveNewValue = () => {
@@ -61,10 +54,9 @@ export default function Birthdaycard() {
     const newUpdatedItem = [...people];
     newUpdatedItem[currentlyEditing] = currentEdit;
     setPeople(newUpdatedItem);
-    setCurrentEdit('');
+    setCurrentEdit("");
     setHidden(false);
-  }
-
+  };
 
   return (
     <div className="wrapper">
@@ -75,19 +67,29 @@ export default function Birthdaycard() {
         value={textInput}
       />
       <h2> {people.length} Birthdays Today</h2>
-      <List people={people} deleteItem={deleteItem} updateItem={updateItem} />
+      <List
+        people={people}
+        deleteItem={deleteItem}
+        updateItem={updateItem}
+        required={true}
+      />
       {hidden ? (
         <div>
           {" "}
           <input
-            type="text" 
+            type="text"
             placeholder="Edit here..........."
             value={currentEdit}
             onChange={(e) => onEditInput(e.target.value)}
           />{" "}
-          <button onClick={()=> {
-            saveNewValue()
-          }}> Save Me</button>{" "}
+          <button
+            onClick={() => {
+              saveNewValue();
+            }}
+          >
+            {" "}
+            Save Me
+          </button>{" "}
         </div>
       ) : null}
 
