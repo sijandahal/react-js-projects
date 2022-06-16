@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { TodoList } from "./TodoList";
-import uuidv4 from "uuidv4";
 
 function App() {
   const [todos, setTodos] = useState(["todo1", "todo2"]);
